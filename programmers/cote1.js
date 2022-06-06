@@ -2,6 +2,8 @@ const id_list   = ["muzi", "frodo", "apeach", "neo"]
 let report      = ["muzi frodo","muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
 const k         = 2
 
+//  코딩테스트 연습2022 KAKAO BLIND RECRUITMENT신고 결과 받기
+
 function solution(id_list, report, k) {
 
     const cote1 = {
@@ -17,6 +19,7 @@ function solution(id_list, report, k) {
         //     'muzi neo',
         //     'apeach muzi'
         //   }
+
 
         const reportInMap = [...reportInSet].map(elem => {
             return elem.split(' ');
