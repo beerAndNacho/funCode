@@ -14,31 +14,31 @@ public class Test2 {
 		String id = "...!@BaT#*..y.abcdefghijklm";
 		String expect = "bat.y.abcdefghi";
 		String result = solution.solution(id);
-		System.out.println(String.format("테스트 케이스 1 expect : %s, result : %s : %s", expect, result, (expect.equals(result) ? "통과" : "실패")));
+		System.out.println(String.format("테스트 케이스 1 expect : %s, result : %s : %s", expect, result, expect.equals(result) ? "통과" : "실패"));
 		
 		// test case 2
 		id = "z-+.^.";
 		expect = "z--";
 		result = solution.solution(id);
-		System.out.println(String.format("테스트 케이스 2 expect : %s, result : %s : %s", expect, result, (expect.equals(result) ? "통과" : "실패")));
+		System.out.println(String.format("테스트 케이스 2 expect : %s, result : %s : %s", expect, result, expect.equals(result) ? "통과" : "실패"));
 		
 		// test case 3
 		id = "=.=";
 		expect = "aaa";
 		result = solution.solution(id);
-		System.out.println(String.format("테스트 케이스 3 expect : %s, result : %s : %s", expect, result, (expect.equals(result) ? "통과" : "실패")));
+		System.out.println(String.format("테스트 케이스 3 expect : %s, result : %s : %s", expect, result, expect.equals(result) ? "통과" : "실패"));
 		
 		// test case 4
 		id = "123_.def";
 		expect = "123_.def";
 		result = solution.solution(id);
-		System.out.println(String.format("테스트 케이스 4 expect : %s, result : %s : %s", expect, result, (expect.equals(result) ? "통과" : "실패")));
+		System.out.println(String.format("테스트 케이스 4 expect : %s, result : %s : %s", expect, result, expect.equals(result) ? "통과" : "실패"));
 		
 		// test case 5
 		id = "abcdefghijklmn.p";
 		expect = "abcdefghijklmn";
 		result = solution.solution(id);
-		System.out.println(String.format("테스트 케이스 5 expect : %s, result : %s : %s", expect, result, (expect.equals(result) ? "통과" : "실패")));
+		System.out.println(String.format("테스트 케이스 5 expect : %s, result : %s : %s", expect, result, expect.equals(result) ? "통과" : "실패"));
 	}
 	
 	static class Solution {
