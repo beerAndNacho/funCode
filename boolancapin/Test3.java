@@ -1,7 +1,6 @@
 package programmers.lv1;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 /**
  * lv1. 크레인 인형뽑기 게임
@@ -24,7 +23,7 @@ public class Test3 {
 		public int solution(int[][] board, int[] moves) {
 			int answer = 0;
 			
-			List<Integer> basket = new ArrayList<>();
+			Stack<Integer> basket = new Stack<>();
 			
 			// moves 순회
 			for(int move : moves) {
@@ -45,12 +44,12 @@ public class Test3 {
 				// 인형이 있는 경우
 				if(pop != 0) {
 					// 가장 마지막 인형과 뽑은 인형이 같으면 바구니에서 제거
-					if(basket.size() > 0 && basket.get(basket.size() - 1) == pop) {
-						basket.remove(basket.size() - 1);
+					if(basket.size() > 0 && basket.peek() == pop) {
+						basket.pop();
 						answer += 2;
 					} else {
 						// 바구니에 추가
-						basket.add(pop);
+						basket.push(pop);
 					}
 				}
 			}
