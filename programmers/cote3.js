@@ -42,8 +42,9 @@ function solution(new_id) {
         step5.push('a');
     }
     // 6단계 new_id의 길이가 16자 이상이면, new_id의 첫 15개의 문자를 제외한 나머지 문자들을 모두 제거합니다.
-    //  만약 제거 후 마침표(.)가 new_id의 끝에 위치한다면 끝에 위치한 마침표(.) 문자를 제거합니다.
+    // 만약 제거 후 마침표(.)가 new_id의 끝에 위치한다면 끝에 위치한 마침표(.) 문자를 제거합니다.
     let step6 = step5;
+    
     if(step6.length >= 16) {
         step6 = step6.slice(0, 15);
         if(step6[step6.length-1] === '.') {

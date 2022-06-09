@@ -3,10 +3,8 @@
 
 function solution(board, moves) {
 
-    // moves는 [moves,moves]
-
     let stack = [];
-
+	// move - 1 열에서 순서대로 인형을 탐색
     for(const m of moves) {
 
         for(const b of board) {
@@ -16,17 +14,14 @@ function solution(board, moves) {
                 b[m-1] = 0;
                 break;
             }
-
-
-    
         }
-
     }
+
     const answer = stack.length - remove(stack).length;
 
     return answer
 }
-
+// 중복 지우기
 function remove (stack) {
 
     for(let i =0; i< stack.length; i++) {
@@ -49,6 +44,8 @@ function remove (stack) {
 }
     
 const board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]];
+
+console.log(board);
 const moves = [1,5,3,5,1,2,1,4];
 
 console.log(solution(board, moves));
