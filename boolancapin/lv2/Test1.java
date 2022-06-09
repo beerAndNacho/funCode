@@ -49,8 +49,7 @@ public class Test1 {
 			}
 			
 			// 1. 압축할 때 입력값의 절반을 넘는 크기의 압축은 불가능
-			int len = s.length();
-			int maxCompress = len / 2;
+			int maxCompress = s.length() / 2;
 			
 			int answer = s.length();
 			
