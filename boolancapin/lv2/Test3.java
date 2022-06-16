@@ -35,7 +35,7 @@ public class Test3 {
 	}
 	
 	static class Solution {
-		// 주문 메뉴 조합 카운트를 저장
+		// 주문된 메뉴 조합을 저장할 map
 		HashMap<String, Integer> orderMap = new HashMap<>();
 		
 		public String[] solution(String[] orders, int[] course) {
