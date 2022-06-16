@@ -39,7 +39,7 @@ public class Test3 {
 		HashMap<String, Integer> orderMap = new HashMap<>();
 		
 		public String[] solution(String[] orders, int[] course) {
-			// 주문된 메뉴를 정리
+			// 코스요리 목록
 			ArrayList<String> menus = new ArrayList<>();
 			
 			for(int c : course) {
