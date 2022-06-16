@@ -35,6 +35,7 @@ public class Test3 {
 	}
 	
 	static class Solution {
+		// 주문 메뉴 조합 카운트를 저장
 		HashMap<String, Integer> orderMap = new HashMap<>();
 		
 		public String[] solution(String[] orders, int[] course) {
@@ -45,12 +46,13 @@ public class Test3 {
 				orderMap.clear();
 				
 				for(String order : orders) {
-					// 코스 메뉴 개수보다 주문 음식 수가 적으면 패스
+					// 주문한 메뉴 수가 코스요리 조합 개수보다 작으면 패스
 					if(order.length() < c) {
 						continue;
 					} else if(order.length() == c) {
 						addMenu(order);
 					} else {
+						// 주문한 메뉴에서 코스 요리 조합을 구한다.
 						comb(order, "", c);
 					}
 				}
@@ -59,20 +61,25 @@ public class Test3 {
 					// 최대 주문 수
 					Integer maxOrderedCount = Collections.max(orderMap.values());
 					
-					// 최대 주문 수와 같고 1회 이상 주문된 메뉴조합만 추가
+					// 최대 주문 수와 같고 1회 이상 주문된 메뉴 조합만 추가
 					orderMap.entrySet().stream()
 						.filter(map -> map.getValue() == maxOrderedCount && map.getValue() > 1)
 						.forEach(map -> menus.add(map.getKey()));
 				}
 			}
 			
+			// 오름차순 정렬
 			Collections.sort(menus);
-			String[] answer = menus.toArray(new String[menus.size()]);
 			
-			return answer;
+			// to array
+			return menus.toArray(new String[menus.size()]);
 		}
 		
-		// 메뉴 추가
+		/**
+		 * 주문한 메뉴들을 오름찬수으로 정렬해서 저장한다.
+		 * 
+		 * @param menu : 주문한 메뉴들
+		 */
 		public void addMenu(String menu) {
 			String[] temp = menu.split("");
 			Arrays.sort(temp);
@@ -83,25 +90,31 @@ public class Test3 {
 				sb.append(t);
 			}
 			
-			String newMenu = sb.toString();
-			if(orderMap.containsKey(newMenu)) {
-				orderMap.put(newMenu, orderMap.get(newMenu) + 1);
+			String sortMenu = sb.toString();
+			if(orderMap.containsKey(sortMenu)) {
+				orderMap.put(sortMenu, orderMap.get(sortMenu) + 1);
 			} else {
-				orderMap.put(newMenu, 1);
+				orderMap.put(sortMenu, 1);
 			}
 		}
 		
-		// 문자열, 추출한 문자열, 추출해야할 개수
+		/**
+		 * 메뉴 조합을 모두 구한다.
+		 * 
+		 * @param str : 남은 메뉴
+		 * @param result : 뽑은 메뉴 조합
+		 * @param r : 뽑아야 하는 메뉴 개수
+		 */
 		public void comb(String str, String result, int r) {
 			if(r == 1) {
-				// 추출해야할 문자열 개수가 1이면, 추출한 문자열에 나머지 문자를 각각 더한 케이스를 메뉴에 추가
+				// 뽑아야 하는 메뉴 개수가 1이면, 뽑은 메뉴 조합에 남은 메뉴를 각각 더해서 코스 메뉴에 추가
 				String[] arr = str.split("");
 				for(int j = 0;j < arr.length;j++) {
 					// add menu
 					addMenu(result + arr[j]);
 				}
 			} else {
-				// 추출해야할 개수가 1보다 크면 맨 처음 문자열을 제외한 나머지 케이스를 모두 구한다.
+				// 뽑아야 하는 메뉴 개수가 1보다 크면, i번째 메뉴를 뽑은 메뉴에 추가하고 i번째 메뉴를 제외한 나머지 메뉴에서 r - 1개만큼 또 메뉴를 뽑는다.
 				for(int i = 0;i <= str.length() - r;i++) {
 					comb(str.substring(i + 1), result + str.substring(i, i + 1), r - 1);
 				}
