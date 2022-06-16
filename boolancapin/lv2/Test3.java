@@ -40,7 +40,7 @@ public class Test3 {
 		
 		public String[] solution(String[] orders, int[] course) {
 			// 코스요리 목록
-			ArrayList<String> menus = new ArrayList<>();
+			ArrayList<String> courseMenus = new ArrayList<>();
 			
 			for(int c : course) {
 				orderMap.clear();
@@ -64,15 +64,15 @@ public class Test3 {
 					// 최대 주문 수와 같고 1회 이상 주문된 메뉴 조합만 추가
 					orderMap.entrySet().stream()
 						.filter(map -> map.getValue() == maxOrderedCount && map.getValue() > 1)
-						.forEach(map -> menus.add(map.getKey()));
+						.forEach(map -> courseMenus.add(map.getKey()));
 				}
 			}
 			
 			// 오름차순 정렬
-			Collections.sort(menus);
+			Collections.sort(courseMenus);
 			
 			// to array
-			return menus.toArray(new String[menus.size()]);
+			return courseMenus.toArray(new String[courseMenus.size()]);
 		}
 		
 		/**
