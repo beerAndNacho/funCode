@@ -17,21 +17,21 @@ public class Test3 {
 		
 		String[] orders = new String[] {"ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"};
 		int[] course = new int[] {2, 3, 4};
-		String[] expext = new String[] {"AC", "ACDE", "BCFG", "CDE"};
+		String[] expect = new String[] {"AC", "ACDE", "BCFG", "CDE"};
 		String[] result = solution.solution(orders, course);
-		System.out.println(String.format("[테스트 케이스 1] : %s", Arrays.equals(expext, result) ? "통과" : "실패"));
+		System.out.println(String.format("[테스트 케이스 1] : %s", Arrays.equals(expect, result) ? "통과" : "실패"));
 		
 		orders = new String[] {"ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"};
 		course = new int[] {2, 3, 5};
-		expext = new String[] {"ACD", "AD", "ADE", "CD", "XYZ"};
+		expect = new String[] {"ACD", "AD", "ADE", "CD", "XYZ"};
 		result = solution.solution(orders, course);
-		System.out.println(String.format("[테스트 케이스 2] : %s", Arrays.equals(expext, result) ? "통과" : "실패"));
+		System.out.println(String.format("[테스트 케이스 2] : %s", Arrays.equals(expect, result) ? "통과" : "실패"));
 		
 		orders = new String[] {"XYZ", "XWY", "WXA"};
 		course = new int[] {2, 3, 4};
-		expext = new String[] {"WX", "XY"};
+		expect = new String[] {"WX", "XY"};
 		result = solution.solution(orders, course);
-		System.out.println(String.format("[테스트 케이스 3] : %s", Arrays.equals(expext, result) ? "통과" : "실패"));
+		System.out.println(String.format("[테스트 케이스 3] : %s", Arrays.equals(expect, result) ? "통과" : "실패"));
 	}
 	
 	static class Solution {
