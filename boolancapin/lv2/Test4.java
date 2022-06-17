@@ -2,6 +2,9 @@ package programmers.lv2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -34,7 +37,7 @@ public class Test4 {
 			
 			// 개발해야 할 기능 목록
 			ArrayList<Integer> progressList = new ArrayList<>();
-			ArrayList<Integer> answer = new ArrayList<>();
+			ArrayList<Integer> answerList = new ArrayList<>();
 			
 			for(int i = 0;i < progresses.length;i++) {
 				progressList.add(i);
@@ -74,11 +77,47 @@ public class Test4 {
 				}
 				
 				if(deploy > 0) {
-					answer.add(deploy);
+					answerList.add(deploy);
 				}
 			}
 			
-			return answer.stream().mapToInt(i -> i).toArray();
+			int[] answer = new int[answerList.size()];
+			
+			for(int i = 0; i < answer.length; i++) {
+				answer[i] = answerList.get(i);
+			}
+			
+			return answer;
+		}
+		
+		public int[] gookSolution(int[] progresses, int[] speeds) {
+			Queue<Integer> q = new LinkedList<>();
+			List<Integer> answerList = new ArrayList<>();
+			
+			for(int i = 0; i < progresses.length; i++) {
+				double remain = (100 - progresses[i]) / (double) speeds[i];
+				// 남은 개발일
+				int date = (int) Math.ceil(remain);
+				
+				// 먼저 완료된 기능이 i번째 기능보다 먼저 개발된 경우 모두 배포
+				if (!q.isEmpty() && q.peek() < date) {
+					answerList.add(q.size());
+					q.clear();
+				}
+				
+				q.offer(date);
+			}
+			
+			// 나머지 기능 배포
+			answerList.add(q.size());
+			
+			int[] answer = new int[answerList.size()];
+			
+			for(int i = 0; i < answer.length; i++) {
+				answer[i] = answerList.get(i);
+			}
+			
+			return answer;
 		}
 	}
 }
