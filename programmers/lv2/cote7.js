@@ -17,7 +17,6 @@ function solution(numbers, target) {
             return;
         }
 
-   
         dfs(level + 1 , sum + numbers[level]);
         dfs(level + 1, sum - numbers[level]);
     }

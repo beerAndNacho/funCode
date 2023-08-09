@@ -13,11 +13,10 @@ function solution(fees, records) {
 
         const arr = record.split(' ');
 
-        newSet.add(arr[1])
+        newSet.add(arr[1]);
 
         return arr
     })
-
 
     newSet = newSet;
 

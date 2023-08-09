@@ -64,7 +64,7 @@ function solution(id_list, report, k) {
     },
 
     answer : (id_list, userReporter) => {
-        
+
         return id_list.map(elem => {
             return userReporter.get(elem) || 0
         })
@@ -76,11 +76,15 @@ const newReport = cote1.newReport(report)
 const userReportedCnt = cote1.userReported(newReport);
 const userReporter = cote1.userReporter(newReport, userReportedCnt, k);
 const answer = cote1.answer(id_list, userReporter);
+
     
 return answer;
 
 }
 
+const result = solution(id_list, report, k);
+
+console.log(result);
 
 
 
