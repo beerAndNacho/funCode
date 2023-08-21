@@ -23,7 +23,6 @@ for(let i = 1; i <= number; i++) {
     if(!arr.includes(i)) {
         console.log(i)
     }
-
 }
 
 // console.log(arr.sort((a,b)=>a-b));
